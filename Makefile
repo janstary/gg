@@ -47,7 +47,7 @@ lint: ${MANS}
 install: ${BINS} ${MANS}
 	install -d -m 755 ${BINDIR} && install -m 755 ${BINS} ${BINDIR}
 	install -d -m 755 ${MANDIR} && install -m 644 ${MANS} ${MANDIR}
-	install -d -m 755 ${SEGDIR} && install -m 644 -b *.{seg,rul} ${LANDIR}
+	install -d -m 755 ${LANDIR} && install -m 644 -b *.{seg,rul} ${LANDIR}
 
 uninstall:
 	( cd ${BINDIR} && rm -f ${BINS} )
