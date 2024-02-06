@@ -1,0 +1,7 @@
+[+nas +ant +cor] > [-ant -cor +back] / _ [+cons +back]
+
+[-son] > [-voice] / _ [-son -voice]
+[-son] > [+voice] / _ [-son +voice]
+# výjimka: ne před [v]
+# výjimka: před sonorou je finální obstruent neznělý (uš leží)
+# ovšem kromě předložek (pod nimi, od jídla, bez lásky)

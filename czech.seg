@@ -1,0 +1,53 @@
+# The Czech phonemes and their allophones, according to
+# Jan Volín, Radek Skarnitzl: Segmentální plán češtiny 
+# (Filozofická fakulta Univerzity Karlovy, 2018)
+
+i	syll son voice cont high
+í	syll son voice cont high long tense
+e	syll son voice cont
+é	syll son voice cont      long
+a	syll son voice cont low
+á	syll son voice cont low  long
+o	syll son voice cont back round
+ó	syll son voice cont back round      long
+u	syll son voice cont back round high
+ú	syll son voice cont back round high long
+ə	     son voice cont
+
+p	cons ant
+b	cons ant     voice
+t	cons ant cor
+d	cons ant cor voice
+ť	cons     cor
+ď	cons     cor voice
+k	cons back
+g	cons back    voice
+
+f	cons cont str ant
+v	cons cont str ant     voice
+s	cons cont str ant cor        
+z	cons cont str ant cor voice
+š	cons cont str     cor
+ž	cons cont str     cor voice
+
+c	cons del  str cor ant
+ʣ	cons del  str cor ant voice
+č	cons del  str cor 
+ʤ	cons del  str cor     voice
+
+ɱ 	cons son     voice ant
+m	cons son nas voice ant
+n	cons son nas voice ant cor
+ň	cons son nas voice     cor
+ŋ	cons son nas voice         back
+
+j	cons cor cont son voice
+l	cons cor cont son voice syll ant lat
+r	cons cor cont son voice syll ant     vib
+ř	cons cor cont     voice          str vib
+
+x	cons     cont 
+ɣ	cons     cont voice
+h	cons glo cont
+ɦ	cons glo cont voice
+ʔ	cons glo cg

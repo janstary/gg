@@ -1,0 +1,16 @@
+A segment name can be more than one UTF char, as in iː or d͡z or o͡u,
+so the reading routine needs to be generalized to recognize those.
+(Apparently, Unicode has ʣ and ʤ as one uchar, but not the others;
+and nobody uses these anyway)
+
+For Czech and English at least, it is enough to recognize ː as
+belonging to the previous uchar in iː and  ͡ as linking two uchars in d͡z.
+To do that, we need a larger buffer and read one or two uchars ahead.
+
+As of now, we simply ignore white space, but word boundaries matter.
+Also, there is more to it than isspace(); see the list at
+https://en.wikipedia.org/wiki/Whitespace_character#Unicode
+
+More than one rule can act, in a cascade: hleď vpravo
+first becomes hleď fpravo, which becomes hleť fpravo.
+cf also "ten kdo" vs "leckdo".

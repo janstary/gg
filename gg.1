@@ -1,0 +1,134 @@
+.Dd February 4, 2024
+.Dt GG 1
+.Os
+.Sh NAME
+.Nm gg
+.Nd apply phonological rules
+.Sh SYNOPSIS
+.Nm
+.Ar language
+.Sh DESCRIPTION
+.Nm
+applies the rules of a generative phonology,
+transforming an input to an output
+according to the phonological rules of the given
+.Ar language .
+.Pp
+.Nm
+expects two files to be found in either the current directory or under
+.Pa .gg/
+in the user's home directory:
+.Dq language.seg
+containing the segments and allophones of the given
+.Ar language ,
+and
+.Dq language.rul
+containing the ordered list of rules.
+Example files for Czech and English
+are distributed with the source code.
+.Pp
+The format of both files is very simple.
+Lines starting with a
+.Sq #
+are considered comments and ignored.
+In the segments file, every line starts with the phoneme's name,
+which is a UTF-8 encoded character such as
+.Sq ð .
+The rest of the line lists the phoneme's distinctive features.
+For every feature listed, the phoneme is considered [+feature];
+for every other feature, the phoneme is [-feature].
+The list of features is as follows:
+.Pp
+.Bl -bullet -compact
+.It
+syllabic
+.It
+consonantal
+.It
+approximant
+.It
+sonorant
+.It
+voice
+.It
+sg (spread glottis)
+.It
+cg (constricted glottis)
+.It
+continuant
+.It
+nasal
+.It
+strident
+.It
+lateral
+.It
+delayed (delayed release)
+.It
+vibrant
+.It
+round
+.It
+anterior
+.It
+distributed
+.It
+high
+.It
+low
+.It
+back
+.It
+tense
+.It
+atr (advanced tongue root)
+.It
+rtr (retracted tongue root)
+.It
+glottal
+.It
+long
+.El
+.Pp
+Every feature can also be specified
+by a unique prefix of the given name, such as
+.Sq son ,
+.Sq ant
+or
+.Sq lat ,
+but not
+.Sq con .
+.Pp
+The rules file states one rule per line.
+The format of every rule is
+.Pp
+.Dl [old] > [new] / [left] _ [right]
+.Pp
+Each of [old], [new], [left] and [right]
+is a list of +features and -features
+enclosed within brackets, such as
+.Sq [+cons -ant] .
+The meaning of the rule is:
+[old] features change to [new] features
+when preceded by a segment matching the [left] context
+and followed by a segment matching the [right] context.
+Either the left or the right context can be ommited.
+For example, the following pair of rules describes
+the regressive assimilation of voicing of Czech obstruents:
+.Pp
+.Dl [-son] > [-voice] / _ [-son -voice]
+.Dl [-son] > [+voice] / _ [-son +voice]
+.Pp
+The options are as follows.
+.Pp
+.Bl -tag -width featuresXXXXX -compact
+.It Fl d
+Print out debug information while processing.
+.It Fl s Ar [ features ]
+Print out the language's matching segments and exit.
+.El
+.Sh EXAMPLES
+.Dl $ echo bez tanku | gg czech
+.Dl bes taŋku
+.Sh AUTHORS
+.An Jan Starý Aq Mt hans@stare.cz
