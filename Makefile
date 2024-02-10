@@ -42,7 +42,7 @@ utf.o:	utf.c utf.h
 	$(CC) $(CFLAGS) -c $<
 
 lint: ${MANS}
-	mandoc -Tlint ${MANS}
+	mandoc -Tlint -Wstyle ${MANS}
 
 install: ${BINS} ${MANS}
 	install -d -m 755 ${BINDIR} && install -m 755 ${BINS} ${BINDIR}
